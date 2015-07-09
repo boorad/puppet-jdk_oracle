@@ -14,9 +14,7 @@ describe 'jdk_oracle', :type => 'class' do
       it {
         is_expected.to contain_exec( 'get_jdk_installer')
         is_expected.to contain_exec('extract_jdk')
-        is_expected.to contain_file('/etc/alternatives/java').with({
-          :ensure  => 'link',
-        })
+        is_expected.to contain_file('/etc/profile.d/java.sh')
         is_expected.to contain_file('/opt/jdk-8').with({
           :ensure  => 'link',
         })
@@ -45,9 +43,7 @@ describe 'jdk_oracle', :type => 'class' do
       it {
         is_expected.to contain_exec( 'get_jdk_installer')
         is_expected.to contain_exec('extract_jdk')
-        is_expected.to contain_file('/etc/alternatives/java').with({
-          :ensure  => 'link',
-        })
+        is_expected.to contain_file('/etc/profile.d/java.sh')
         is_expected.to contain_file('/opt/jdk-7').with({
           :ensure  => 'link',
         })
